@@ -143,9 +143,11 @@ a {
 
 .flex-column {
   display: flex;
-  flex-direction: column;
+/*  flex-direction: column;*/
   flex-wrap: nowrap;
   padding: 10px;
+  /*Added*/
+  justify-content: space-around;  
 }
 
 .center-content {
