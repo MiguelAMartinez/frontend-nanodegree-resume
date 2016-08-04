@@ -141,10 +141,18 @@ var education = {
   "schools": [
   {
     "name": "UT Austin",
-    "city": "Austin, Texas",
+    "location": "Austin, Texas",
     "degree": "B.S.",
     "dates": "2012 - 2016",
     "url": "http://www.utexas.edu",
+    "majors": ["Chemical Engineering"]
+  },
+  {
+    "name": "Texas Tech",
+    "location": "Lubbock, Texas",
+    "degree": "B.S.",
+    "dates": "2011 - 2012",
+    "url": "",
     "majors": ["Chemical Engineering"]
   }
   ], 
@@ -172,7 +180,7 @@ education.display = function() {
     var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
     $(".education-entry:last").append(formattedDates);
 
-    var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].city);
+    var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
     $(".education-entry:last").append(formattedLocation);
 
     var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
@@ -198,6 +206,9 @@ education.display = function() {
 }
 
 education.display();
+
+
+// Clicks
 
 
 $(document).click(function(loc) {
