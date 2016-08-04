@@ -187,9 +187,9 @@ education.display = function() {
     $(".education-entry:last").append(formattedMajor);
   }
 
-  
+  $("#education").append(HTMLonlineClasses);
   for (course in education.onlineCourses) {
-    $("#education").append(HTMLonlineClasses);
+    $("#education").append(HTMLschoolStart);
 
     var formattedTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
     $(".education-entry:last").append(formattedTitle);
@@ -206,7 +206,6 @@ education.display = function() {
 }
 
 education.display();
-
 
 // Clicks
 
