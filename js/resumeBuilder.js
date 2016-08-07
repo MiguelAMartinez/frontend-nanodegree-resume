@@ -18,41 +18,33 @@ var bio = {
   "bioPic": "images/me.jpg"
 }
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+bio.display = function() {
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+  var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+  $("#header").prepend(formattedName + formattedRole + formattedBioPic + formattedWelcomeMsg);
 
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  $("#topContacts").append(formattedMobile + formattedEmail + formattedGithub + formattedLocation);
 
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedGithub);
-$("#topContacts").append(formattedLocation);
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
 
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedBioPic);
-
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedWelcomeMsg);
-
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#skills").append(formattedSkill);
-
+    var formattedSkill0 = HTMLskills.replace("%data%", bio.skills[0]);
+    var formattedSkill1 = HTMLskills.replace("%data%", bio.skills[1]);
+    var formattedSkill2 = HTMLskills.replace("%data%", bio.skills[2]);
+    var formattedSkill3 = HTMLskills.replace("%data%", bio.skills[3]); 
+    $("#skills").append(formattedSkill0 + formattedSkill1 + formattedSkill2 + formattedSkill3);
+  }
 }
+
+bio.display();
+
 
 // Work experience
 
@@ -75,25 +67,65 @@ var work = {
   ]
 }
 
-function displayWork() {
-  for (job in work.jobs) {
-    $("#workExperience").append(HTMLworkStart);
+ 
+// // **This one does not works**
+// work.display = function() {
+//   for (var i = 0; i < work.jobs.length; i++) {
+//     $("#workExperience").append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    $(".work-entry:last").append(formattedEmployerTitle);
+//     var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+//     var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+//     var formattedEmployerTitle = formattedEmployer + formattedTitle;
+//     $(".work-entry:last").append(formattedEmployerTitle);
 
-    var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
-    $(".work-entry:last").append(formattedDates);
+//     var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+//     $(".work-entry:last").append(formattedDates);
 
-    var formattedDescription = HTMLprojectDescription.replace("%data%",work.jobs[job].description);
-    $(".work-entry:last").append(formattedDescription);
+//     var formattedDescription = HTMLprojectDescription.replace("%data%",work.jobs[job].description);
+//     $(".work-entry:last").append(formattedDescription);
+//   };
+// }
+// work.display();
 
-  }
-}
+// // **This one does not works**
+//  work.display = function() {
+//    work.jobs.forEach(function(job) {
+//       $("#workExperience").append(HTMLworkStart);
 
-displayWork();
+//       var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+//       var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+//       var formattedEmployerTitle = formattedEmployer + formattedTitle;
+//       $(".work-entry:last").append(formattedEmployerTitle);
+
+//       var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+//       $(".work-entry:last").append(formattedDates);
+
+//       var formattedDescription = HTMLprojectDescription.replace("%data%",work.jobs[job].description);
+//       $(".work-entry:last").append(formattedDescription);
+//     });
+// }
+// work.display();
+
+
+// // **This one works**
+//  work.display = function() {
+//   for (job in work.jobs) {
+//     $("#workExperience").append(HTMLworkStart);
+
+//     var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+//     var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+//     var formattedEmployerTitle = formattedEmployer + formattedTitle;
+//     $(".work-entry:last").append(formattedEmployerTitle);
+
+//     var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+//     $(".work-entry:last").append(formattedDates);
+
+//     var formattedDescription = HTMLprojectDescription.replace("%data%",work.jobs[job].description);
+//     $(".work-entry:last").append(formattedDescription);
+//   }
+// }
+// work.display();
+
 
 // Projects
 
@@ -206,6 +238,9 @@ education.display = function() {
 }
 
 education.display();
+
+
+
 
 // Clicks
 
