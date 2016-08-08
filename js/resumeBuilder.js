@@ -1,16 +1,16 @@
 
 // Bio 
 var bio = {
-  "name": "Miguel Martinez", 
-  "role": "Web Developer",
+  'name': 'Miguel Martinez', 
+  'role': "Web Developer",
   "contacts": {
-  	"mobile": "832-420-9784",
-  	"email": "miguel.martinez@utexas.edu",
-  	"github": "MiguelAMartinez",
+    "mobile": "832-420-9784",
+    "email": "miguel.martinez@utexas.edu",
+    "github": "MiguelAMartinez",
     "twitter": "none",
-  	"location": "Austin,Texas"
+    "location": "Austin,Texas"
   },
-  "welcomeMessage": "Welcome to my website!",
+  "welcomeMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla orci in lacus dignissim imperdiet. Maecenas vitae diam volutpat, faucibus dolor ut, rutrum dui. Cras a convallis mauris. Praesent facilisis commodo nisl, vel rhoncus leo. Aenean tincidunt suscipit urna eu facilisis. Sed vulputate in ante vitae vehicula. Morbi placerat ligula sollicitudin erat interdum interdum. Sed convallis augue tristique, venenatis arcu eget, viverra enim. Morbi ac faucibus lectus, laoreet viverra arcu.",
   "skills": [
     "Web Development", "Entrepreneurship", "Engineering", "Programming"
   ],
@@ -63,16 +63,20 @@ var work = {
   ]
 };
 
-work.display = function() {
+ work.display = function() {
   work.jobs.forEach(function(job) {
     $("#workExperience").append(HTMLworkStart);
 
     var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
     var formattedTitle = HTMLworkTitle.replace("%data%",job.title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    var formattedDates = HTMLworkDates.replace("%data%",job.dates); 
-    var formattedDescription = HTMLprojectDescription.replace("%data%",job.description); 
-    $(".work-entry:last").append(formattedEmployerTitle + formattedDates + formattedDescription);
+    $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedDates = HTMLworkDates.replace("%data%",job.dates);
+    $(".work-entry:last").append(formattedDates);
+
+    var formattedDescription = HTMLprojectDescription.replace("%data%",job.description);
+    $(".work-entry:last").append(formattedDescription);
   });
 };
 
@@ -101,11 +105,16 @@ projects.display = function() {
     $("#projects").append(HTMLprojectStart);
 
     var formattedTitle = HTMLprojectTitle.replace("%data%",project.title);
-    var formattedDates = HTMLprojectDates.replace("%data%",project.dates);
-    var formattedDescription = HTMLprojectDescription.replace("%data%",project.description);   
-    var formattedImages = HTMLprojectImage.replace("%data%",project.images);  
+    $(".project-entry:last").append(formattedTitle);
 
-    $(".project-entry:last").append(formattedTitle + formattedDates + formattedDescription + formattedImages);
+    var formattedDates = HTMLprojectDates.replace("%data%",project.dates);
+    $(".project-entry:last").append(formattedDates);
+
+    var formattedDescription = HTMLprojectDescription.replace("%data%",project.description);
+    $(".project-entry:last").append(formattedDescription);
+
+    var formattedImages = HTMLprojectImage.replace("%data%",project.images);
+    $(".project-entry:last").append(formattedImages);
   });
 };
 
@@ -133,7 +142,7 @@ var education = {
   ], 
   "onlineCourses": [
   {
-    "title": "Front-End Web Development",
+    "title": "Front-End ND",
     "school": "Udacity",
     "dates": "Summer 2016",
     "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
@@ -143,60 +152,41 @@ var education = {
 
 education.display = function() {
   education.schools.forEach(function(school) {
-    $("#education").append(HTMLschoolStart);
-
+    $("#education").append(HTMLschoolStart);    
     var formattedName = HTMLschoolName.replace("%data%",school.name);
+    $(".education-entry:last").append(formattedName);
+
     var formattedDegree = HTMLschoolDegree.replace("%data%",school.degree);
+    $(".education-entry:last").append(formattedDegree);
+
     var formattedDates = HTMLschoolDates.replace("%data%",school.dates);
+    $(".education-entry:last").append(formattedDates);
+
     var formattedLocation = HTMLschoolLocation.replace("%data%",school.location);
+    $(".education-entry:last").append(formattedLocation);
+
     var formattedMajor = HTMLschoolMajor.replace("%data%",school.majors);
-    $(".education-entry:last").append(formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor);
+    $(".education-entry:last").append(formattedMajor);
   });
 
   $("#education").append(HTMLonlineClasses);
-  education.onlineCourses.forEach(function(onlineCourse) {
-    $("#education").append(HTMLschoolStart);
-
+  education.schools.forEach(function(onlineCourse) {
+    $("#education").append(HTMLschoolStart);    
     var formattedTitle = HTMLonlineTitle.replace("%data%",onlineCourse.title);
+    $(".education-entry:last").append(formattedTitle);
+
     var formattedSchool = HTMLonlineSchool.replace("%data%",onlineCourse.school);
-    var formattedDates = HTMLonlineDates.replace("%data%",onlineCourse.dates); 
-    var formattedUrl = HTMLonlineURL.replace("%data%",onlineCourse.url);    
-    $(".education-entry:last").append(formattedTitle + formattedSchool + formattedDates + formattedUrl);
+    $(".education-entry:last").append(formattedSchool);
+
+    var formattedDates = HTMLonlineDates.replace("%data%",onlineCourse.dates);
+    $(".education-entry:last").append(formattedDates);
+
+    var formattedUrl = HTMLonlineURL.replace("%data%",onlineCourse.url);
+    $(".education-entry:last").append(formattedUrl);
   });
 };
 
 education.display();
 
 // Clicks
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-
-  logClicks(x,y);
-});
-
-function locationizer(work_obj) {
-
-  var locationsArray = [];
-
-  for (job in work_obj.jobs) {
-    locationsArray.push(work_obj.jobs[job].location);
-  }
-
-  return locationsArray;
-
-}
-
-console.log(locationizer(work));
-
-function inName(name) {
-
-  name = name.trim().split(" ");
-  console.log(name);
-  name[1] = name[1].toUpperCase();
-  name[0] = name[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
-  
-  return name[0] + " " + name[1];
-}
-
 $("#mapDiv").append(googleMap);
