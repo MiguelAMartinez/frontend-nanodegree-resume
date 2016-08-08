@@ -4,20 +4,25 @@
   <meta charset="utf-8">
   <title>Resume</title>
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/FA/css/font-awesome.min.css" rel="stylesheet">
   <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCBY2TITqsgFIV0kJePPnf6MTIINJnid9I"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
   <div id="main">
-    <div id="header" class="center-content clear-fix">
+    <header>
       <div class="header-top">
+        <ul id="topContacts"></ul>              
       </div>
-      <div class="header-contacts">
-        <ul id="topContacts" class="flex-box"></ul>      
+      <div class="header-middle">
+        <div class="middle-image">
+        </div>  
+        <div class="middle-text">
+        </div>       
       </div>
-      <div class="header-main">
+      <div class="header-bottom">
       </div>
-    </div>
+    </header>
     <div style="clear: both;"></div>
     <div id="workExperience" class="gray">
       <h2>Work Experience</h2>
@@ -61,7 +66,7 @@
     // }
     // if(document.getElementById('map') === null) {
     //   document.getElementById('mapDiv').style.display = 'none';
-    }
+    // }
   </script>
 </body>
 </html>

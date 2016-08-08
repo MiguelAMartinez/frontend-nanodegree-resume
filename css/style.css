@@ -1,26 +1,121 @@
 
-
 * {
   padding:0;
   margin:0;
   font-family: "Arial", sans-serif;
+  box-sizing: border-box;
 }
 
-.clear-fix {
-  overflow: auto;
+.header-top {
+  padding: 2.5% 7% 0.5%;   
+  /*width: 100%;*/
+/*  display: flex;
+  flex-wrap: wrap;*/
+  /*align-items: center;*/
+  text-align: center; 
+  background-color: #2f3d48;
 }
+
+.title-name {
+  font-size: 45px;
+  color: #fff;
+}
+
+.title-role {
+  font-size: 22px;
+  color: #02b3e4;
+}
+
+.header-hr {
+  color: #1C262F;
+  background-color: #1C262F;
+  margin: 1% 0;
+  border: 0;
+  height: 1.5px;
+}
+
+#topContacts {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.contact-item {
+  font-size: 17px;
+}
+
+.contact-type {
+  padding: 5px;
+  color: #02b3e4;
+}
+
+.contact-text {
+  padding: 5px;
+  font-weight: bold;
+  color: #fff; 
+}
+
+.header-middle {
+  padding: 1% 7%; 
+  display: flex;
+  flex-wrap: wrap;  
+  align-items: center;
+}
+
+.middle-image {
+  width: 35%;
+  /*background-color: blue;  */
+}
+
+.biopic {
+  padding: 10px 0 10px;
+  margin-left: 25px;
+  width: 200px;  
+  border-radius: 50% 
+}
+
+.middle-text {
+  width: 65%;
+  /*background-color: red;*/
+}
+
+.welcome-message {
+  margin-right: 25px;
+  /*background-color: green;*/
+}
+
+.message-text {
+  text-align: justify;
+  font-style: italic;
+  font-size: 18px;
+/*  color: #f3f3f3;*/
+  color: grey;
+  line-height: 26px;
+}
+
+.header-bottom { 
+
+}
+
+#skills-h3 {
+  padding: 1% 7%;  
+/*  color: #02b3e4;*/
+  color: #fff;
+  display: none;
+  background-color: #2f3d48;
+}
+
+
+
+
+
 
 .education-entry,
 .work-entry,
 .project-entry {
   padding: 0 5%;
-}
-
-h1 {
-  font-size: 40px;
-  color: #fff;
-  line-height: 48px;
-  display: inline;
 }
 
 h2 {
@@ -84,30 +179,15 @@ a {
   display: block;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
-}
 
-#skills-h3 {
-  color: #02b3e4;
-  display: none;
-}
+
+
 
 .orange {
   background-color: #2f3d48;
 }
 
-.orange-text {
-  color: #02b3e4;
-}
 
-.white-text {
-  font-weight: bold;
-  color: #fff;
-}
 
 .gray {
   background-color: #f3f3f3;
@@ -120,18 +200,8 @@ a {
 }
 
 /* TODO: Replace with image later */
-#header {
-  background-color: #2f3d48;
-}
 
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
+
 
 .flex-column {
   display: flex;
@@ -142,28 +212,17 @@ a {
   justify-content: space-around;  
 }
 
-.center-content {
-  padding: 2.5% 5%;
-}
-
 ul {
   list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
 }
 
 img {
   padding: 10px;
 }
 
-span {
+/*span {
   padding: 5px;
-}
+}*/
 
 #lets-connect {
   text-align: center;
