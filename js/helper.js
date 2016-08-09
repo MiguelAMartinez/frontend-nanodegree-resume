@@ -11,34 +11,34 @@ var HTMLlocation = '<li class="contact-item"><span class="contact-type"><i class
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<div class="welcome-message"><p class="message-text">%data%</p></div>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
-var HTMLskills = '<li class="flex-item">%data%</li>';
+var HTMLskillsStart = '<h3 class="skills-title">Skills at a Glance<hr class="skills-hr"></h3><ul id="skills" class="flex-column"></ul>';
+var HTMLskills = '<li class="skill">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkEmployer = '<a class="section-title" href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<p class="work-description"><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a class="section-title" href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
+var HTMLprojectDescription = '<p class="project-description"><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolName = '<a class="section-title" href="#">%data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolDegree = '<em><br>%data% -';
+var HTMLschoolMajor = ' %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineClasses = '<h3 class="online-title">Online Classes</h3>';
+var HTMLonlineTitle = '<a class="section-title" href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<br><a class="section-link" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -96,6 +96,10 @@ function initializeMap() {
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.jobs.forEach(function(job){
       locations.push(job.location);
+    });
+
+    living.places.forEach(function(place) {
+      locations.push(place.location);
     });
 
     return locations;
