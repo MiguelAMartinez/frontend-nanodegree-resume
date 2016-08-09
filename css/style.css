@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+.main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 3% 2%;
+}
 /*Main Title*/
 .header-top {
   padding: 2.5% 7% 0.5%;   
@@ -58,10 +63,12 @@
 
 /*Picture and message*/
 .header-middle {
-  padding: 1% 7%; 
+  display: -webkit-flex;
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;    
+  padding: 4% 13%; 
   align-items: center;
+  background-image: url(/images/back.jpeg);
 }
 
 .middle-image {
@@ -72,7 +79,7 @@
   padding: 10px 0 10px;
   margin-left: 45px;
   width: 200px;  
-  border-radius: 50% 
+  border-radius: 50%;  
 }
 
 .middle-text {
@@ -81,12 +88,16 @@
 
 .welcome-message {
   margin-right: 45px;
+  background-color: white; 
+  border: solid 3px #2f3d48;
+  border-radius: 25px; 
+  padding: 6px;
 }
 
 .message-text {
+  font-size: 18px;  
   text-align: justify;
   font-style: italic;
-  font-size: 18px;
   color: #4F4F4F;
   line-height: 26px;
 }
@@ -97,11 +108,16 @@
 }
 
 #skills {
+  font-size: 16px;
   display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 7%; 
-  list-style-type: none;
+  justify-content: space-around; 
+  /*padding: 0 7%; */
+/*  padding: 0 2%;
+  max-width: 1050px;
+  margin: auto;*/
+  list-style-type: none; 
 }
 
 .skill {
@@ -114,11 +130,14 @@
 .projects-title,
 .work-title,
 .education-title {
-  padding: 0.5% 7%;
+  /*padding: 1% 2% 0;*/
+/*  max-width: 1050px;
+  margin: auto;*/
   color: #2f3d48;
 }
 
 .section-title {
+  font-size: 17px;
   color: #1199c3;
   text-decoration: none;
   margin-top: 10px;
@@ -126,12 +145,19 @@
 }
 
 .online-title {
-  padding: 2% 7% 0;  
+  /*padding: 1.5% 7% 0;  */
+/*  padding: 0.5% 2% 0;
+  max-width: 1050px;
+  margin: auto;*/
 }
 
 .section-link {
   color: #1199c3;
   text-decoration: none;  
+}
+
+img {
+  padding: 10px;
 }
 
 .skills-hr, 
@@ -140,7 +166,7 @@
 .education-hr {
   color: #999;
   background-color: #999;
-  margin: 0.5% 0;
+  margin: 0;
   border: 0;
   height: 2px;
 }
@@ -148,7 +174,15 @@
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 7%;
+/*  padding: 0 2%;
+  max-width: 1050px;
+  margin: auto;*/
+  /*margin: 0 7%;*/  
+  /*background-color: #f9f9f9;*/
+  /*border: 1px solid grey;*/
+/*  -webkit-box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 7px 0px rgba(0,0,0,0.75);*/
 }
 
 .date-text {
@@ -169,47 +203,41 @@
 
 .work-description, 
 .project-description {
-  font-size: 14px;
+  font-size: 15px;
   color: #4F4F4F;
-  line-height: 21px;
+  line-height: 17px;
+}
+
+.school-info {
+  color: #4F4F4F; 
 }
 
 /*Map*/
 .map-hr {
   color: #999;
   background-color: #999;
-  margin: 0.5% 0 1%;
+  margin: 0 0 1%;
   border: 0;
   height: 2px;
 }
+
 .map-title {
   color: #2f3d48;
+  padding: 1% 0 0;
 }
 
 #map {
   display: block;
   height: 100%;
-
 }
 
 #mapDiv { 
   height: 400px;
   width: 100%;
-  padding: 1% 7% 5%;
-
-}
-
-.flex-column {
-  display: flex;
-/*  flex-direction: column;*/
-  flex-wrap: nowrap;
-  padding: 10px;
-  /*Added*/
-  justify-content: space-around;  
-}
-
-img {
-  padding: 10px;
+  /*padding: 1% 7% 5%;*/
+/*  padding: 0.5% 2% 5%;
+  max-width: 1050px;
+  margin: auto;*/
 }
 
 /*Footer*/
@@ -229,7 +257,6 @@ img {
 #footerContacts {
   list-style-type: none;  
 }
-
 
 @media only screen and (max-width: 1024px) {
   #lets-connect {

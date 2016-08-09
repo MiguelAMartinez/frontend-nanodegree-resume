@@ -11,7 +11,7 @@ var HTMLlocation = '<li class="contact-item"><span class="contact-type"><i class
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<div class="welcome-message"><p class="message-text">%data%</p></div>';
 
-var HTMLskillsStart = '<h3 class="skills-title">Skills at a Glance<hr class="skills-hr"></h3><ul id="skills" class="flex-column"></ul>';
+var HTMLskillsStart = '<h3 class="skills-title">Skills at a Glance<hr class="skills-hr"></h3><ul id="skills"></ul>';
 var HTMLskills = '<li class="skill">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -31,7 +31,7 @@ var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a class="section-title" href="#">%data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolDegree = '<em><br>%data% -';
+var HTMLschoolDegree = '<em class="school-info"><br>%data% -';
 var HTMLschoolMajor = ' %data%</em>';
 
 var HTMLonlineClasses = '<h3 class="online-title">Online Classes</h3>';
