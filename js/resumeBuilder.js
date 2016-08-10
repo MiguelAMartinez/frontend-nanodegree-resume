@@ -9,7 +9,7 @@ var bio = {
   	'github': 'MiguelAMartinez',
   	'location': 'Austin, Texas'
   },
-  'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla orci in lacus dignissim imperdiet. Maecenas vitae diam volutpat, faucibus dolor ut, rutrum dui. Cras a convallis mauris. Praesent facilisis commodo nisl, vel rhoncus leo.',
+  'welcomeMessage': 'Welcome to my website! I am a highly-motivated, self-driven problem solver who loves technology and web development. I look forward to sharing my background, skills, experience, and projects with you.',
   'skills': [
     'Web Development', 'Responsive design', 'Engineering', 'Javascript'
   ],
@@ -32,15 +32,16 @@ bio.display = function() {
   var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
   var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
   $('#topContacts').append(formattedMobile + formattedEmail + formattedGithub + formattedLocation);
+  $('#footerContacts').append(formattedMobile + formattedEmail + formattedGithub + formattedLocation);
 
   if (bio.skills.length > 0) {
-    $('.header-bottom').append(HTMLskillsStart);
+    $('#skills').append(HTMLskillsStart);
 
     var formattedSkill0 = HTMLskills.replace('%data%', bio.skills[0]);
     var formattedSkill1 = HTMLskills.replace('%data%', bio.skills[1]);
     var formattedSkill2 = HTMLskills.replace('%data%', bio.skills[2]);
     var formattedSkill3 = HTMLskills.replace('%data%', bio.skills[3]); 
-    $('#skills').append(formattedSkill0 + formattedSkill1 + formattedSkill2 + formattedSkill3);
+    $('.skills').append(formattedSkill0 + formattedSkill1 + formattedSkill2 + formattedSkill3);
   }
 };
 
@@ -51,15 +52,27 @@ var work = {
   'jobs': [{
     'employer': 'Lyft',
     'title': 'City Growth Leader',
-    'location': 'Austin, Texas',
-    'dates': 'June 2014 - May 2016',
+    'location': 'Austin, TX',
+    'dates': '06/14 - 05/16',
     'description': 'Developed and implemented business growth strategies<br>Established dozens of promotional partnerships with local businesses<br>Achieved acquisition of hundreds of new Lyft users'
   }, {
     'employer': 'UT Austin',
     'title': 'Research Assistant',
-    'location': 'Austin, Texas',
-    'dates': 'June 2014 - August 2014',
+    'location': 'Austin, TX',
+    'dates': '06/14 - 08/14',
     'description': 'Evaluated mechanical properties of Si-metal structures via computational analysis<br>Analyzed formation of Si-metal alloys for material optimization<br>Investigated applications of Si-metal electrodes for Li ion batteries'
+  }, {
+    'employer': 'UT Austin',
+    'title': 'Research Assistant',
+    'location': 'Austin, TX',
+    'dates': '01/13 - 08/14',
+    'description': 'Synthesized biodegradable gold nanoparticles<br>Designed clusters of nanoparticles with improved imaging properties<br>Researched applications for biomedical diagnosis and therapy'
+  }, {
+    'employer': 'Texas Parents Association',
+    'title': 'Family Orientation Student Leader',
+    'location': 'Austin, TX',
+    'dates': '06/13 - 08/13',
+    'description': 'Assisted in coordination of six Family Orientation summer sessions<br>Presented to hundreds of family members of incoming students'
   }]
 };
 
@@ -72,9 +85,10 @@ work.display = function() {
     var formattedEmployer = HTMLworkEmployer.replace('%data%',job.employer);
     var formattedTitle = HTMLworkTitle.replace('%data%',job.title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
+    var formattedLocation = HTMLworkLocation.replace('%data%',job.location);
     var formattedDates = HTMLworkDates.replace('%data%',job.dates);  
-    var formattedDescription = HTMLprojectDescription.replace('%data%',job.description);      
-    $('.work-entry:last').append(formattedEmployerTitle + formattedDates + formattedDescription);
+    var formattedDescription = HTMLworkDescription.replace('%data%',job.description);      
+    $('.work-entry:last').append(formattedEmployerTitle + formattedDates + formattedLocation + formattedDescription);
   });
 };
 
