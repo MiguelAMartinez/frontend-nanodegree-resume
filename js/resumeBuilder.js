@@ -2,42 +2,46 @@
 // Bio 
 var bio = {
   'name': 'Miguel Martinez', 
-  'role': "Web Developer",
-  "contacts": {
-    "mobile": "832-420-9784",
-    "email": "miguel.martinez@utexas.edu",
-    "github": "MiguelAMartinez",
-    "twitter": "none",
-    "location": "Austin,Texas"
+  'role': 'Web Developer',
+  'contacts': {
+    'mobile': '832-420-9777',
+    'email': 'miguel.martinez@utexas.edu',
+    'github': 'MiguelAMartinez',
+    'location': 'Austin, Texas'
   },
-  "welcomeMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla orci in lacus dignissim imperdiet. Maecenas vitae diam volutpat, faucibus dolor ut, rutrum dui. Cras a convallis mauris. Praesent facilisis commodo nisl, vel rhoncus leo. Aenean tincidunt suscipit urna eu facilisis. Sed vulputate in ante vitae vehicula. Morbi placerat ligula sollicitudin erat interdum interdum. Sed convallis augue tristique, venenatis arcu eget, viverra enim. Morbi ac faucibus lectus, laoreet viverra arcu.",
-  "skills": [
-    "Web Development", "Entrepreneurship", "Engineering", "Programming"
+  'welcomeMessage': 'Welcome to my website! I am a highly-motivated, self-driven problem solver who loves technology and web development. I look forward to sharing my background, skills, experience, and projects with you.',
+  'skills': [
+    'Web Development', 'Responsive design', 'Engineering', 'Javascript'
   ],
-  "bioPic": "images/me.jpg"
+  'bioPic': 'images/me.jpg'
 };
 
 bio.display = function() {
-  var formattedName = HTMLheaderName.replace("%data%", bio.name);
-  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-  var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-  var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-  $("#header").prepend(formattedName + formattedRole + formattedBioPic + formattedWelcomeMsg);
+  var formattedName = HTMLheaderName.replace('%data%', bio.name);
+  var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+  $('.header-top').prepend(formattedName + formattedRole); 
 
-  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-  $("#topContacts").append(formattedMobile + formattedEmail + formattedGithub + formattedLocation);
+  var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+  $('.middle-image').append(formattedBioPic);
+
+  var formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+  $('.middle-text').append(formattedWelcomeMsg);
+
+  var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+  var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+  var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
+  var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+  $('#topContacts').append(formattedMobile + formattedEmail + formattedGithub + formattedLocation);
+  $('#footerContacts').append(formattedMobile + formattedEmail + formattedGithub + formattedLocation);
 
   if (bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
+    $('#skills').append(HTMLskillsStart);
 
-    var formattedSkill0 = HTMLskills.replace("%data%", bio.skills[0]);
-    var formattedSkill1 = HTMLskills.replace("%data%", bio.skills[1]);
-    var formattedSkill2 = HTMLskills.replace("%data%", bio.skills[2]);
-    var formattedSkill3 = HTMLskills.replace("%data%", bio.skills[3]); 
-    $("#skills").append(formattedSkill0 + formattedSkill1 + formattedSkill2 + formattedSkill3);
+    var formattedSkill0 = HTMLskills.replace('%data%', bio.skills[0]);
+    var formattedSkill1 = HTMLskills.replace('%data%', bio.skills[1]);
+    var formattedSkill2 = HTMLskills.replace('%data%', bio.skills[2]);
+    var formattedSkill3 = HTMLskills.replace('%data%', bio.skills[3]); 
+    $('.skills').append(formattedSkill0 + formattedSkill1 + formattedSkill2 + formattedSkill3);
   }
 };
 
@@ -45,38 +49,46 @@ bio.display();
 
 // Work experience
 var work = {
-  "jobs": [
-  {
-    "employer": "Lyft",
-    "title": "City Growth Leader",
-    "location": "Austin, Texas",
-    "dates": "June 2014 - May 2016",
-    "description": "Developed and implemented business growth strategies<br>Established dozens of promotional partnerships with local businesses<br>Achieved acquisition of hundreds of new Lyft users"
-  }, 
-  {
-    "employer": "UT Austin",
-    "title": "Research Assistant",
-    "location": "Austin, Texas",
-    "dates": "June 2014 - August 2014",
-    "description": "Evaluated mechanical properties of Si-metal structures via computational analysis<br>Analyzed formation of Si-metal alloys for material optimization<br>Investigated applications of Si-metal electrodes for Li ion batteries"
-  }
-  ]
+  'jobs': [{
+    'employer': 'Lyft',
+    'title': 'City Growth Leader',
+    'location': 'Austin, TX',
+    'dates': '06/14 - 05/16',
+    'description': 'Developed and implemented business growth strategies<br>Established dozens of promotional partnerships with local businesses<br>Achieved acquisition of hundreds of new Lyft users'
+  }, {
+    'employer': 'UT Austin',
+    'title': 'Research Assistant',
+    'location': 'Austin, TX',
+    'dates': '06/14 - 08/14',
+    'description': 'Evaluated mechanical properties of Si-metal structures via computational analysis<br>Analyzed formation of Si-metal alloys for material optimization<br>Investigated applications of Si-metal electrodes for Li ion batteries'
+  }, {
+    'employer': 'UT Austin',
+    'title': 'Research Assistant',
+    'location': 'Austin, TX',
+    'dates': '01/13 - 08/14',
+    'description': 'Synthesized biodegradable gold nanoparticles<br>Designed clusters of nanoparticles with improved imaging properties<br>Researched applications for biomedical diagnosis and therapy'
+  }, {
+    'employer': 'Texas Parents Association',
+    'title': 'Family Orientation Student Leader',
+    'location': 'Austin, TX',
+    'dates': '06/13 - 08/13',
+    'description': 'Assisted in coordination of six Family Orientation summer sessions<br>Presented to hundreds of family members of incoming students'
+  }]
 };
 
- work.display = function() {
+work.display = function() {
+  $('.work-title').append('<hr class="work-hr">'); 
+
   work.jobs.forEach(function(job) {
-    $("#workExperience").append(HTMLworkStart);
+    $('#workExperience').append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%",job.title);
+    var formattedEmployer = HTMLworkEmployer.replace('%data%',job.employer);
+    var formattedTitle = HTMLworkTitle.replace('%data%',job.title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    $(".work-entry:last").append(formattedEmployerTitle);
-
-    var formattedDates = HTMLworkDates.replace("%data%",job.dates);
-    $(".work-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLprojectDescription.replace("%data%",job.description);
-    $(".work-entry:last").append(formattedDescription);
+    var formattedLocation = HTMLworkLocation.replace('%data%',job.location);
+    var formattedDates = HTMLworkDates.replace('%data%',job.dates);  
+    var formattedDescription = HTMLworkDescription.replace('%data%',job.description);      
+    $('.work-entry:last').append(formattedEmployerTitle + formattedDates + formattedLocation + formattedDescription);
   });
 };
 
@@ -84,37 +96,30 @@ work.display();
 
 // Projects
 var projects = {
-  "projects": [
-  {
-    "title": "Design Mockup Portfolio",
-    "dates": "Summer 2016",
-    "description": "A responsive web portfolio from a mockup design",
-    "images": ["images/P2.png"]
-  }, 
-  {
-    "title": "Animal Trading Card",
-    "dates": "Summer 2016",
-    "description": "Animal trading card with CSS styles",
-    "images": ["images/P1.png"]
-  }
-  ]
+  'projects': [{
+    'title': 'Design Mockup Portfolio',
+    'dates': 'Summer 2016',
+    'description': 'A responsive web portfolio from a mockup design',
+    'images': ['images/P2.png']
+  }, {
+    'title': 'Animal Trading Card',
+    'dates': 'Summer 2016',
+    'description': 'Animal trading card with CSS styles',
+    'images': ['images/P1.png']
+  }]
 };
 
 projects.display = function() {
+  $('.projects-title').append('<hr class="projects-hr">');
+
   projects.projects.forEach(function(project) {
-    $("#projects").append(HTMLprojectStart);
+    $('#projects').append(HTMLprojectStart);
 
-    var formattedTitle = HTMLprojectTitle.replace("%data%",project.title);
-    $(".project-entry:last").append(formattedTitle);
-
-    var formattedDates = HTMLprojectDates.replace("%data%",project.dates);
-    $(".project-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLprojectDescription.replace("%data%",project.description);
-    $(".project-entry:last").append(formattedDescription);
-
-    var formattedImages = HTMLprojectImage.replace("%data%",project.images);
-    $(".project-entry:last").append(formattedImages);
+    var formattedTitle = HTMLprojectTitle.replace('%data%',project.title);
+    var formattedDates = HTMLprojectDates.replace('%data%',project.dates);
+    var formattedDescription = HTMLprojectDescription.replace('%data%',project.description);
+    var formattedImages = HTMLprojectImage.replace('%data%',project.images);
+    $('.project-entry:last').append(formattedTitle + formattedDates + formattedDescription + formattedImages);
   });
 };
 
@@ -122,71 +127,70 @@ projects.display();
 
 // Education
 var education = {
-  "schools": [
-  {
-    "name": "UT Austin",
-    "location": "Austin, Texas",
-    "degree": "B.S.",
-    "dates": "2012 - 2016",
-    "url": "http://www.utexas.edu",
-    "majors": ["Chemical Engineering"]
-  },
-  {
-    "name": "Texas Tech",
-    "location": "Lubbock, Texas",
-    "degree": "B.S.",
-    "dates": "2011 - 2012",
-    "url": "",
-    "majors": ["Chemical Engineering"]
-  }
-  ], 
-  "onlineCourses": [
-  {
-    "title": "Front-End ND",
-    "school": "Udacity",
-    "dates": "Summer 2016",
-    "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-  }
-  ]
+  'schools': [{
+    'name': 'UT Austin',
+    'location': 'Austin, Texas',
+    'degree': 'B.S.',
+    'dates': '2012 - 2016',
+    'url': 'http://www.utexas.edu',
+    'majors': ['Chemical Engineering']
+  }, {
+    'name': 'Texas Tech',
+    'location': 'Lubbock, Texas',
+    'degree': 'B.S.',
+    'dates': '2011 - 2012',
+    'url': '',
+    'majors': ['Chemical Engineering']
+  }],
+  'onlineCourses': [{
+    'title': 'Front-End ND',
+    'school': 'Udacity',
+    'dates': 'Summer 2016',
+    'url': 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+  }]
 };
 
 education.display = function() {
+  $('.education-title').append('<hr class="education-hr">');
+
   education.schools.forEach(function(school) {
-    $("#education").append(HTMLschoolStart);    
-    var formattedName = HTMLschoolName.replace("%data%",school.name);
-    $(".education-entry:last").append(formattedName);
+    $('#education').append(HTMLschoolStart);   
 
-    var formattedDegree = HTMLschoolDegree.replace("%data%",school.degree);
-    $(".education-entry:last").append(formattedDegree);
-
-    var formattedDates = HTMLschoolDates.replace("%data%",school.dates);
-    $(".education-entry:last").append(formattedDates);
-
-    var formattedLocation = HTMLschoolLocation.replace("%data%",school.location);
-    $(".education-entry:last").append(formattedLocation);
-
-    var formattedMajor = HTMLschoolMajor.replace("%data%",school.majors);
-    $(".education-entry:last").append(formattedMajor);
+    var formattedName = HTMLschoolName.replace('%data%',school.name);
+    var formattedDates = HTMLschoolDates.replace('%data%',school.dates);
+    var formattedLocation = HTMLschoolLocation.replace('%data%',school.location);
+    var formattedDegree = HTMLschoolDegree.replace('%data%',school.degree);
+    var formattedMajor = HTMLschoolMajor.replace('%data%',school.majors);   
+    $('.education-entry:last').append(formattedName + formattedDates + formattedLocation + formattedDegree + formattedMajor);
   });
 
-  $("#education").append(HTMLonlineClasses);
-  education.schools.forEach(function(onlineCourse) {
-    $("#education").append(HTMLschoolStart);    
-    var formattedTitle = HTMLonlineTitle.replace("%data%",onlineCourse.title);
-    $(".education-entry:last").append(formattedTitle);
+  $('#education').append(HTMLonlineClasses);
 
-    var formattedSchool = HTMLonlineSchool.replace("%data%",onlineCourse.school);
-    $(".education-entry:last").append(formattedSchool);
+  education.onlineCourses.forEach(function(onlineCourse) {
+    $('#education').append(HTMLschoolStart);    
 
-    var formattedDates = HTMLonlineDates.replace("%data%",onlineCourse.dates);
-    $(".education-entry:last").append(formattedDates);
-
-    var formattedUrl = HTMLonlineURL.replace("%data%",onlineCourse.url);
-    $(".education-entry:last").append(formattedUrl);
+    var formattedTitle = HTMLonlineTitle.replace('%data%',onlineCourse.title);
+    var formattedSchool = HTMLonlineSchool.replace('%data%',onlineCourse.school);
+    var formattedDates = HTMLonlineDates.replace('%data%',onlineCourse.dates);
+    var formattedUrl = HTMLonlineURL.replace('%data%',onlineCourse.url);    
+    $('.education-entry:last').append(formattedTitle + formattedSchool + formattedDates + formattedUrl);
   });
+
+  $('.map-title').append('<hr class="map-hr">');
 };
 
 education.display();
 
-// Clicks
-$("#mapDiv").append(googleMap);
+// Places I have lived
+var living = {
+  'places': [{
+    'location': 'Valencia, Venezuela',
+  }, {
+    'location': 'Mexico City, Mexico',
+  }, {
+    'location': 'Monterry, Mexico',
+  }]
+};
+
+// Maps
+$('#mapDiv').append(googleMap);

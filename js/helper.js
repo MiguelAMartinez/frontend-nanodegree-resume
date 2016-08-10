@@ -1,94 +1,47 @@
-/*
 
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
+var HTMLheaderName = '<h1 class="title-name">%data%</h1>';
+var HTMLheaderRole = '<span class="title-role">%data%</span><hr class="header-hr">';
 
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
+var HTMLcontactGeneric = '<li class="contact-item"><span class="contact-type">%contact%</span><span class="contact-text">%data%</span></li>';
+var HTMLmobile = '<li class="contact-item"><span class="contact-type"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i></span><span class="contact-text">%data%</span></li>';
+var HTMLemail = '<li class="contact-item"><span class="contact-type"><i class="fa fa-envelope" aria-hidden="true"></i></span><span class="contact-text">%data%</span></li>';
+var HTMLgithub = '<li class="contact-item"><span class="contact-type"><i class="fa fa-github fa-lg" aria-hidden="true"></i></span><span class="contact-text">%data%</span></li>';
+var HTMLlocation = '<li class="contact-item"><span class="contact-type"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span><span class="contact-text">%data%</span></li>';
 
-Cameron Pittman
-*/
+var HTMLbioPic = '<img src="%data%" class="biopic" alt="bio picture">';
+var HTMLwelcomeMsg = '<div class="welcome-message"><p class="message-text">%data%</p></div>';
 
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
-
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
-
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
-
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<h2 class="skills-title">Skills at a Glance<hr class="skills-hr"></h2><ul class="skills"></ul>';
+var HTMLskills = '<li class="skill">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkEmployer = '<a class="section-title" href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<div><p class="work-description"><br>%data%</p></div>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a class="section-title" href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectDescription = '<p class="project-description">%data%</p>';
+var HTMLprojectImage = '<img src="%data%" class="project-image" alt="Project Image">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolName = '<a class="section-title" href="#">%data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolDegree = '<em class="school-info"><br>%data% -';
+var HTMLschoolMajor = ' %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineClasses = '<h3 class="online-title">Online Classes</h3>';
+var HTMLonlineTitle = '<a class="section-title" href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<a class="section-link" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-
-
-/*
-The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
-$(document).ready(function() {
-  $('button').click(function() {
-    var $name = $('#name');
-    var iName = inName($name.text()) || function(){};
-    $name.html(iName);
-  });
-});
-
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
-*/
-var clickLocations = [];
-
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
-
-$(document).click(function(loc) {
-  // your code goes here!
-});
-
 
 
 /*
@@ -143,6 +96,10 @@ function initializeMap() {
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.jobs.forEach(function(job){
       locations.push(job.location);
+    });
+
+    living.places.forEach(function(place) {
+      locations.push(place.location);
     });
 
     return locations;
