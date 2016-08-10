@@ -165,8 +165,8 @@ education.display = function() {
     $('.education-entry:last').append(formattedName + formattedDates + formattedLocation + formattedDegree);
 
     for (var i=0; i < school.majors.length; i++) {
-        var formattedMajor = HTMLschoolMajor.replace('%data%',school.majors[i]);            
-        $('.education-entry:last').append(formattedMajor);
+      var formattedMajor = HTMLschoolMajor.replace('%data%',school.majors[i]);            
+      $('.education-entry:last').append(formattedMajor);
     }
   });
 
